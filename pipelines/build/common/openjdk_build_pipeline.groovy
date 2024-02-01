@@ -1969,7 +1969,7 @@ class Build {
                                 if (buildConfig.VARIANT == "openj9") {
                                     def openjceplusBuildArgs = ''
                                     def javaVersion = getJavaVersionNumber()
-                                    if (DEFAULTS_JSON['bundle-openjceplus'].contains(javaVersion)) {
+                                    if (!DEFAULTS_JSON['exclude-openjceplus'].contains(javaVersion)) {
                                         if (env.BUILD_ARGS != null && !env.BUILD_ARGS.isEmpty()) {
                                             openjceplusBuildArgs = env.BUILD_ARGS + ' --bundle-openjceplus'
                                         } else {
